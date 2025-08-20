@@ -20,4 +20,8 @@ class Customer extends Model
         'created_at',
         'updated_at',
     ];
+     public function invoices()
+    {
+        return $this->hasMany(Invoice::class, 'customerid');
+    }
 }
