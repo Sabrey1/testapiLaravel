@@ -45,27 +45,52 @@
         
         <li>
           <router-link 
-            to="/about" 
+            to="/customer-list" 
             class="nav-link flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors duration-200 group text-white"
             active-class="bg-blue-600 hover:bg-blue-700"
           >
             <svg class="w-5 h-5 mr-3 text-white group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
             </svg>
-            <span class="sidebar-text text-white">About</span>
+            <span class="sidebar-text text-white">Customer</span>
           </router-link>
         </li>
         
         <li>
           <router-link 
-            to="/contact" 
+            to="/invoice" 
+            class="nav-link flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors duration-200 group text-white"
+            active-class="bg-blue-600 hover:bg-blue-700"
+          >
+            <svg class="w-5 h-5 mr-3 text-white group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="sidebar-text text-white">Invoice</span>
+          </router-link>
+        </li>
+        
+        <li>
+          <router-link 
+            to="/menu" 
             class="nav-link flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors duration-200 group text-white"
             active-class="bg-blue-600 hover:bg-blue-700"
           >
             <svg class="w-5 h-5 mr-3 text-white group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
             </svg>
-            <span class="sidebar-text text-white">Contact</span>
+            <span class="sidebar-text text-white">Menu</span>
+          </router-link>
+        </li>
+        <li>
+          <router-link 
+            to="/menu-type" 
+            class="nav-link flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors duration-200 group text-white"
+            active-class="bg-blue-600 hover:bg-blue-700"
+          >
+            <svg class="w-5 h-5 mr-3 text-white group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <span class="sidebar-text text-white">Menu Type</span>
           </router-link>
         </li>
       </ul>
@@ -83,6 +108,7 @@
         </div>
       </div>
     </div>
+     
   </aside>
 
   <!-- Mobile Overlay -->

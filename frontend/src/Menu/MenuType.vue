@@ -1,6 +1,6 @@
 <template>
     <DashboardLayout>
-    <h1>Customer List Page</h1>
+    <h1>Menu Type Page</h1>
     </DashboardLayout>
 </template>
 <script setup>

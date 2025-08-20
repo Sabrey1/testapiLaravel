@@ -43,8 +43,10 @@ export default {
       const pageTitles = {
         '/': 'Dashboard',
         '/product-list': 'Products',
-        '/about': 'About',
-        '/contact': 'Contact'
+        '/customer-list': 'Customer List',
+        '/invoice': 'Invoice',
+        '/menu': 'Menu',
+        '/menu-type': 'Menu Type'
       };
       
       // Return the title for current route, or default to 'Dashboard'

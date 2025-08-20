@@ -2,9 +2,15 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/Home.vue';
 import ProductList from '@/Product/ProductList.vue';
+import CustomerList from '@/Customer/CustomerList.vue';
+import CustomerDetail from '@/Customer/CustomerDetail.vue';
+import Invoice from '@/Invoice/Invoice.vue';
+import InvoiceDetail from '@/Invoice/InvoiceDetail.vue';
+import Menu from '@/Menu/Menu.vue';
+import MenuType from '@/Menu/MenuType.vue';
 import Login from '@/Auth/Login.vue';
 import Register from '@/Auth/Register.vue';
-import NotFound from '@/NotFound.vue'; // import 404 component
+import NotFound from '@/NotFound.vue';
 
 const routes = [
   {
@@ -21,6 +27,36 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/customer-list',
+    name: 'CustomerList',
+    component: CustomerList
+  },
+  {
+    path: '/customer-detail',
+    name: 'CustomerDetail',
+    component: CustomerDetail
+  },
+  {
+    path: '/invoice',
+    name: 'Invoice',
+    component: Invoice
+  },
+  {
+    path: '/invoice-detail',
+    name: 'InvoiceDetail',
+    component: InvoiceDetail
+  },
+  {
+    path: '/menu',
+    name: 'Menu',
+    component: Menu
+  },
+  {
+    path: '/menu-type',
+    name: 'MenuType',
+    component: MenuType
   },
   {
     path: '/register',
