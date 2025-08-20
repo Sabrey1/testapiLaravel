@@ -12,9 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('app_user_permissions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        $table->id('appuserpermissionid');
+        $table->foreignId('appuserid')->constrained('app_users');
+        $table->string('userpermission', 50);
+        $table->timestamps();
+    });
     }
 
     /**

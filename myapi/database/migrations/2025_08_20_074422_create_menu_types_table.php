@@ -12,9 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menu_types', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        $table->id('menutypeid');
+        $table->string('menutypename', 50);
+        $table->timestamps();
+    });
     }
 
     /**
