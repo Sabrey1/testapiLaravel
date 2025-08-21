@@ -2,36 +2,25 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
-use App\Models\Customer;
-class CustomerSeeder extends Seeder
+use App\Models\Customers;  
+
+class CustomersSeeder extends Seeder   // <-- rename the class here
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        $faker = \Faker\Factory::create();
-        $customers = [];
-
+        $faker = Faker::create();
         for ($i = 0; $i < 10; $i++) {
-            $customers[] = [
-                'customername' => $faker->name,
-                'companyname'  => $faker->company,
-                'phone'        => $faker->phoneNumber,
-                'email'        => $faker->unique()->safeEmail,
-                'address'      => $faker->address,
-                'ishidden'     => 0,
-                'isdefault'    => 0,
-                'created_at'   => now(),
-                'updated_at'   => now(),
-            ];
+            Customers::create([
+    'customername' => $faker->name,
+    'companyname' => $faker->company,
+    'phone' => $faker->phoneNumber,
+    'email' => $faker->email,
+    'address' => $faker->address,
+    'ishidden' => 0,
+]);
         }
-
-        Customer::insert($customers);
     }
-    
 }

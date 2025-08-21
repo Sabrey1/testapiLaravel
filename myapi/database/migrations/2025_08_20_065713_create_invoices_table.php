@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoices', function (Blueprint $table) {
-            $table->id('invoiceid');
-            $table->boolean('ishidden')->default(0);
-            $table->foreignId()->constrained('customers');
-            $table->date('orderdate');
-            $table->decimal('vat', 8, 2)->default(0);
-            $table->string('memo', 500)->nullable();
-            $table->boolean('ispaid')->default(0);
-            $table->timestamps();
-        });
+    $table->id('invoiceid');
+    $table->boolean('ishidden')->default(0);
+    $table->foreignId('customerid')->constrained('customers', 'customerid'); // correct FK
+    $table->date('orderdate');
+    $table->decimal('vat', 8, 2)->default(0);
+    $table->string('memo', 500)->nullable();
+    $table->boolean('ispaid')->default(0);
+    $table->timestamps();
+});
+
     }
 
     /**

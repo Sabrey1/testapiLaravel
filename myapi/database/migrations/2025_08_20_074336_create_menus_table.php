@@ -12,14 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('menus', function (Blueprint $table) {
-        $table->id('menuid');
-        $table->boolean('ishidden')->default(0);
-        $table->foreignId('menutypeid')->constrained('menu_types');
-        $table->string('menuname', 50);
-        $table->string('itemdescription', 500)->nullable();
-        $table->decimal('saleprice', 10, 2);
-        $table->timestamps();
-    });
+    $table->id('menuid');
+    $table->boolean('ishidden')->default(0);
+    $table->foreignId('menutypeid')->constrained('menu_types', 'menutypeid'); // correct FK
+    $table->string('menuname', 50);
+    $table->string('itemdescription', 500)->nullable();
+    $table->decimal('saleprice', 10, 2);
+    $table->timestamps();
+});
+
+
     }
 
     /**

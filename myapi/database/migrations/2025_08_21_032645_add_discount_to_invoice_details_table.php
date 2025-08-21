@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('app_user_permissions', function (Blueprint $table) {
-    $table->id('appuserpermissionid'); // primary key
-    $table->foreignId('appuserid')->constrained('app_users', 'appuserid'); // correct FK
-    $table->string('userpermission', 50);
-    $table->timestamps();
-});
+       Schema::table('invoice_details', function (Blueprint $table) {
+        $table->decimal('discount', 8, 2)->default(0);
+    });
     }
 
     /**
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('app_user_permissions');
+        Schema::table('invoice_details', function (Blueprint $table) {
+            //
+        });
     }
 };

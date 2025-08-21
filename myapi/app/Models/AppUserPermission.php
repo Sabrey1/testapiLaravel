@@ -12,6 +12,8 @@ class AppUserPermission extends Model
      protected $fillable = [
         'appuserid',
         'userpermission',
+        'created_at',
+        'updated_at',
     ];
 
      public function user() {

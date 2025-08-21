@@ -5,40 +5,35 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\InvoiceDetail;
 use App\Models\Invoice;
-use App\Models\Menu;
 use Faker\Factory as Faker;
 
 class InvoiceDetailSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $faker = Faker::create();
 
         $invoiceIds = Invoice::pluck('invoiceid')->toArray();
-        $menuIds    = Menu::pluck('menuid')->toArray();
 
-        if (empty($invoiceIds) || empty($menuIds)) {
-            $this->command->warn('⚠️ Please seed invoices and menus first.');
+        if (empty($invoiceIds)) {
+            $this->command->warn('⚠️ No invoices found. Seed invoices first.');
             return;
         }
 
-        $details = [];
+        $invoiceDetails = [];
 
         for ($i = 0; $i < 10; $i++) {
-            $details[] = [
-                'invoiceid'     => $faker->randomElement($invoiceIds),
-                'menuid'        => $faker->randomElement($menuIds),
-                'orderquantity' => $faker->numberBetween(1, 10),
-                'orderprice'    => $faker->randomFloat(2, 1, 100),
-                'discount'      => $faker->randomFloat(2, 0, 20),
-                'created_at'    => now(),
-                'updated_at'    => now(),
+            $invoiceDetails[] = [
+                'invoiceid'   => $faker->randomElement($invoiceIds),
+                'productname' => $faker->word(),
+                'quantity'    => $faker->numberBetween(1, 10),
+                'price'       => $faker->randomFloat(2, 5, 100),
+                'created_at'  => now(),
+                'updated_at'  => now(),
             ];
         }
 
-        InvoiceDetail::insert($details);
+        InvoiceDetail::insert($invoiceDetails);
+        $this->command->info('✅ 10 invoice details inserted.');
     }
 }

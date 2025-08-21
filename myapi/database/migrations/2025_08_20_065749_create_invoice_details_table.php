@@ -12,14 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('invoice_details', function (Blueprint $table) {
-            $table->id('invoicedetailid');
-            $table->foreignId('invoiceid')->constrained('invoices');
-            $table->foreignId('menuid')->constrained('menus');
-            $table->integer('orderquantity');
-            $table->decimal('orderprice', 10, 2);
-            $table->decimal('discount', 10, 2)->default(0);
-            $table->timestamps();
-        });
+        $table->id('invoicedetailid');
+        $table->foreignId('invoiceid')->constrained('invoices', 'invoiceid'); // <- note 'invoiceid'
+        $table->string('productname');
+        $table->integer('quantity');
+        $table->decimal('price', 10, 2);
+        $table->timestamps();
+    });
     }
 
     /**
