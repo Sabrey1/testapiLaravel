@@ -34,7 +34,7 @@
                   </div>
                 </div>
                 <div class="ml-4">
-                  <p class="text-sm font-medium text-gray-600">Total Users</p>
+                  <p class="text-sm font-medium text-gray-600">Total Customers</p>
                   <p class="text-2xl font-bold text-gray-900">1,234</p>
                 </div>
               </div>
