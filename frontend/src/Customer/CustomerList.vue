@@ -38,7 +38,7 @@
           tableStyle="min-width: 50rem"
           class="custom-datatable"
         >
-          <Column sortable field="customerid" header="ID" style="width: 100px">
+          <Column sortable field="customerid" header="NO" style="width: 100px">
             <template #body="slotProps">
               <span class="font-semibold text-blue-600">{{ slotProps.data.customerid }}</span>
             </template>

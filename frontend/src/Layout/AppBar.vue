@@ -1,10 +1,8 @@
-<!-- src/Layout/AppBar.vue -->
 <template>
   <header class="h-16 bg-white shadow-md flex items-center px-4 relative z-10">
-    <!-- Hamburger Button -->
     <button 
       class="hamburger-btn p-2 rounded-md hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
-      @click="$emit('toggle-sidebar')"
+      @click="emit('toggle-sidebar')"
       :class="{ 'hamburger-active': sidebarOpen }"
     >
       <div class="hamburger-icon">
@@ -14,12 +12,16 @@
       </div>
     </button>
 
-    <!-- Dynamic App Title -->
-    <h1 class="text-2xl font-bold text-gray-800 ml-4 ">{{ currentPageTitle }}</h1>
 
-    <!-- Right side content (optional) -->
+    <h1 class="text-2xl font-bold text-gray-800 ml-4">{{ currentPageTitle }}</h1>
+
+
     <div class="ml-auto flex items-center space-x-4">
-      <!-- You can add user profile, notifications, etc. here -->
+      <buttonSwitchLang />
+    </div>
+
+    <div class="ml-auto flex items-center space-x-4">
+
       <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
         <span class="text-white text-sm font-medium">U</span>
       </div>
@@ -27,37 +29,42 @@
   </header>
 </template>
 
-<script>
-export default {
-  name: "AppBar",
-  props: {
-    sidebarOpen: {
-      type: Boolean,
-      default: true
-    }
-  },
-  emits: ['toggle-sidebar'],
-  computed: {
-    currentPageTitle() {
-      // Define page titles based on route paths
-      const pageTitles = {
-        '/': 'Dashboard',
-        '/product-list': 'Products',
-        '/customer-list': 'Customer List',
-        '/invoice': 'Invoice',
-        '/menu': 'Menu',
-        '/menu-type': 'Menu Type'
-      };
-      
-      // Return the title for current route, or default to 'Dashboard'
-      return pageTitles[this.$route.path] || 'Dashboard';
-    }
+<script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import buttonSwitchLang from '@/Layout/buttonSwitchlang.vue'
+
+
+
+defineProps({
+  sidebarOpen: {
+    type: Boolean,
+    default: true
   }
-};
+})
+
+
+const emit = defineEmits(['toggle-sidebar'])
+
+
+const route = useRoute()
+
+const currentPageTitle = computed(() => {
+  const pageTitles = {
+    '/': 'Dashboard',
+    '/product-list': 'Products',
+    '/customer-list': 'Customer List',
+    '/invoice': 'Invoice',
+    '/menu': 'Menu',
+    '/menu-type': 'Menu Type'
+  }
+
+  return pageTitles[route.path] || 'Dashboard'
+})
 </script>
 
 <style scoped>
-/* Hamburger Menu Styles */
+
 .hamburger-btn {
   width: 40px;
   height: 40px;
@@ -99,7 +106,7 @@ export default {
   top: 14px;
 }
 
-/* Animation for hamburger to X */
+
 .hamburger-active .hamburger-line:nth-child(1) {
   top: 7px;
   transform: rotate(135deg);

@@ -1,4 +1,3 @@
-<!-- src/views/Home.vue -->
 <template>
   <div class="flex h-screen bg-gray-50">
     <!-- Sidebar -->
@@ -18,12 +17,13 @@
       <main class="flex-1 p-6 bg-gray-50 overflow-auto">
         <div class="max-w-7xl mx-auto">
           <div class="mb-8">
-            <h2 class="text-3xl font-bold text-gray-900 mb-2">Welcome to Dashboard</h2>
-            <p class="text-gray-600">Manage your application from this central hub.</p>
+            <h2 class="text-3xl font-bold text-gray-900 mb-2">{{t("Welcome to Dashboard")}}</h2>
+            <p class="text-gray-600">{{t("Manage your application from this central hub.")}}</p>
           </div>
 
           <!-- Dashboard Cards -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Card 1: Total Customers -->
             <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
@@ -40,6 +40,7 @@
               </div>
             </div>
 
+            <!-- Card 2: Revenue -->
             <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
@@ -56,6 +57,7 @@
               </div>
             </div>
 
+            <!-- Card 3: Orders -->
             <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
@@ -72,6 +74,7 @@
               </div>
             </div>
 
+            <!-- Card 4: Performance -->
             <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
               <div class="flex items-center">
                 <div class="flex-shrink-0">
@@ -141,49 +144,34 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import Sidebar from '@/Layout/Sidebar.vue';
 import AppBar from '@/Layout/AppBar.vue';
 
-export default {
-  components: { Sidebar, AppBar },
-  setup() {
-    const sidebarOpen = ref(window.innerWidth >= 768);
+import { useI18n } from 'vue-i18n'
 
-    function toggleSidebar() {
-      sidebarOpen.value = !sidebarOpen.value;
-    }
+const { t, locale } = useI18n()
 
-    function closeSidebar() {
-      sidebarOpen.value = false;
-    }
+const sidebarOpen = ref(window.innerWidth >= 768);
 
-    function handleResize() {
-      if (window.innerWidth >= 768) {
-        sidebarOpen.value = true;
-      } else {
-        sidebarOpen.value = false;
-      }
-    }
+function toggleSidebar() {
+  sidebarOpen.value = !sidebarOpen.value;
+}
 
-    onMounted(() => {
-      window.addEventListener('resize', handleResize);
-    });
+function closeSidebar() {
+  sidebarOpen.value = false;
+}
 
-    onUnmounted(() => {
-      window.removeEventListener('resize', handleResize);
-    });
+function handleResize() {
+  sidebarOpen.value = window.innerWidth >= 768;
+}
 
-    return { 
-      sidebarOpen, 
-      toggleSidebar, 
-      closeSidebar 
-    };
-  }
-};
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
 </script>
-
-<style scoped>
-/* No additional styles needed - using Tailwind */
-</style>
