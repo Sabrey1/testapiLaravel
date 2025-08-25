@@ -5,5 +5,26 @@
   "Welcome to Dashboard": "សូមស្វាគមន៍មកកាន់ផ្ទាំងគ្រប់គ្រង",
   "Dashboard": "ផ្ទាំងគ្រប់គ្រង",
   "Logout": "ចាកចេញ",
-  "Manage your application from this central hub.": "គ្រប់គ្រងកម្មវិធីរបស់អ្នកពីមជ្ឈមណ្ឌលកណ្តាលនេះ។"
+  "Manage your application from this central hub.": "គ្រប់គ្រងកម្មវិធីរបស់អ្នកពីមជ្ឈមណ្ឌលកណ្តាលនេះ។",
+  "Total Customers": "អតិថិជនសរុប",
+  "Revenue": "ប្រាក់ចំណូល",
+  "Orders": "ការបញ្ជាទិញ",
+  "Performance": "ការបង្ហាញ",
+  "Recent Activity": "សកម្មភាពថ្មីៗ",
+  "New user registered": "អ្នកប្រើប្រាស់ថ្មីបានចុះឈ្មោះ",
+  "Edit": "កែប្រែ",
+  "Delete": "លុប",
+  "Email": "អ៊ីមែល",
+  "Action": "សកម្មភាព",
+  "Phone Number": "លេខទូរស័ព្ទ",
+  "Name": "ឈ្មោះ",
+  "NO": "ល.រ",
+  "Error loading invoices": "មានកំហុសក្នុងការទាញយកវិក្កយបត្រ",
+  "Customer ID": "អត្តសញ្ញាណអតិថិជន",
+  "Order Date": "កាលបរិច្ឆេទបញ្ជាទិញ",
+  "Vat": "Vat",
+  "Menu Name": "ឈ្មោះម៉ឺនុយ",
+  "Sale Price": "តម្លៃលក់",
+  "Type Name": "ឈ្មោះប្រភេទ"
+
 }

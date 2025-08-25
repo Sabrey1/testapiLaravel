@@ -8,9 +8,9 @@
     <div class="p-6 border-b border-gray-700">
       <div class="flex items-center space-x-3">
         <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-          <span class="text-white font-bold text-sm">MA</span>
+          <span class="text-white font-bold text-sm">PS</span>
         </div>
-        <span class="text-xl font-bold sidebar-text text-white">My App</span>
+        <span class="text-xl font-bold sidebar-text text-white">POS System</span>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
           </router-link>
         </li>
         
-        <li>
+        <!-- <li>
           <router-link 
             to="/product-list" 
             class="nav-link flex items-center px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors duration-200 group text-white"
@@ -41,7 +41,7 @@
             </svg>
             <span class="sidebar-text text-white">Products</span>
           </router-link>
-        </li>
+        </li> -->
         
         <li>
           <router-link 

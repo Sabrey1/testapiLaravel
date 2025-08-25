@@ -38,23 +38,23 @@
           tableStyle="min-width: 50rem"
           class="custom-datatable"
         >
-          <Column sortable field="menutypeid" header="ID" style="width: 100px">
+          <Column sortable field="menutypeid" :header="t('NO')" style="width: 100px">
             <template #body="slotProps">
               <span class="font-semibold text-blue-600">{{ slotProps.data.menutypeid }}</span>
             </template>
           </Column>
-          
-          <Column sortable field="typename" header="Type Name">
+
+          <Column sortable field="typename" :header="t('Type Name')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.typename }}</span>
             </template>
           </Column>
-          
-          <Column field="price" header="Action" style="width: 150px">
+
+          <Column field="price" :header="t('Action')" style="width: 150px">
             <template #body="slotProps">
               <div class="flex space-x-2">
-              <button class="btnEdit">Edit</button>
-              <button class="btnDelete">Delete</button>
+              <button class="btnEdit">{{t("Edit")}}</button>
+              <button class="btnDelete">{{t("Delete")}}</button>
               </div>
             </template>
           </Column>
@@ -73,7 +73,9 @@ import axios from 'axios'
 import DashboardLayout from '../Layout/DashboardLayout.vue'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import { useI18n } from 'vue-i18n'
 
+const { t, locale } = useI18n() 
 const menusTypes = ref([])
 const selectedProduct = ref();
 const metaKey = ref(true);

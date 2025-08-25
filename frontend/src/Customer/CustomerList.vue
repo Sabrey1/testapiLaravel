@@ -38,32 +38,32 @@
           tableStyle="min-width: 50rem"
           class="custom-datatable"
         >
-          <Column sortable field="customerid" header="NO" style="width: 100px">
+          <Column sortable field="customerid" :header="t('NO')" style="width: 100px">
             <template #body="slotProps">
               <span class="font-semibold text-blue-600">{{ slotProps.data.customerid }}</span>
             </template>
           </Column>
-          
-          <Column sortable field="customername" header="Name">
+
+          <Column sortable field="customername" :header="t('Name')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.customername }}</span>
             </template>
           </Column>
-          <Column sortable field="phone" header="Phone Number">
+          <Column sortable field="phone" :header="t('Phone Number')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.phone }}</span>
             </template>
           </Column>
-          <Column sortable field="email" header="Email">
+          <Column sortable field="email" :header="t('Email')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.email }}</span>
             </template>
           </Column>
-          <Column field="price" header="Action" style="width: 150px">
+          <Column field="price" :header="t('Action')" style="width: 200px">
             <template #body="slotProps">
               <div class="flex space-x-2">
-              <button class="btnEdit">Edit</button>
-              <button class="btnDelete">Delete</button>
+              <button class="btnEdit">{{t("Edit")}}</button>
+              <button class="btnDelete">{{t("Delete")}}</button>
               </div>
             </template>
           </Column>
@@ -79,6 +79,9 @@ import axios from 'axios'
 import DashboardLayout from '../Layout/DashboardLayout.vue'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n() 
 
 const customers = ref([])
 const selectedProduct = ref();

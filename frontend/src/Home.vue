@@ -34,7 +34,7 @@
                   </div>
                 </div>
                 <div class="ml-4">
-                  <p class="text-sm font-medium text-gray-600">Total Customers</p>
+                  <p class="text-sm font-medium text-gray-600">{{t("Total Customers")}}</p>
                   <p class="text-2xl font-bold text-gray-900">1,234</p>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                   </div>
                 </div>
                 <div class="ml-4">
-                  <p class="text-sm font-medium text-gray-600">Revenue</p>
+                  <p class="text-sm font-medium text-gray-600">{{t("Revenue")}}</p>
                   <p class="text-2xl font-bold text-gray-900">$45,678</p>
                 </div>
               </div>
@@ -68,7 +68,7 @@
                   </div>
                 </div>
                 <div class="ml-4">
-                  <p class="text-sm font-medium text-gray-600">Orders</p>
+                  <p class="text-sm font-medium text-gray-600">{{t("Orders")}}</p>
                   <p class="text-2xl font-bold text-gray-900">567</p>
                 </div>
               </div>
@@ -85,7 +85,7 @@
                   </div>
                 </div>
                 <div class="ml-4">
-                  <p class="text-sm font-medium text-gray-600">Performance</p>
+                  <p class="text-sm font-medium text-gray-600">{{t("Performance")}}</p>
                   <p class="text-2xl font-bold text-gray-900">98.5%</p>
                 </div>
               </div>
@@ -95,7 +95,7 @@
           <!-- Recent Activity -->
           <div class="bg-white rounded-lg shadow-sm border border-gray-200">
             <div class="px-6 py-4 border-b border-gray-200">
-              <h3 class="text-lg font-medium text-gray-900">Recent Activity</h3>
+              <h3 class="text-lg font-medium text-gray-900">{{t("Recent Activity")}}</h3>
             </div>
             <div class="p-6">
               <div class="flow-root">
@@ -109,7 +109,7 @@
                       </div>
                       <div class="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                         <div>
-                          <p class="text-sm text-gray-500">New user registered</p>
+                          <p class="text-sm text-gray-500">{{t("New user registered")}}</p>
                         </div>
                         <div class="whitespace-nowrap text-right text-sm text-gray-500">
                           2 hours ago

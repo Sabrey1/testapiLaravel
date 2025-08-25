@@ -14,13 +14,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
           <div>
-            <h3 class="text-red-800 font-medium">Error loading products</h3>
+            <h3 class="text-red-800 font-medium">Error loading menu</h3>
             <p class="text-red-700 text-sm mt-1">{{ error }}</p>
             <button 
               @click="fetchProducts" 
               class="mt-2 text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded transition-colors"
             >
-              Try Again
+              {{t("Try Again")}}
             </button>
           </div>
         </div>
@@ -38,28 +38,28 @@
           tableStyle="min-width: 50rem"
           class="custom-datatable"
         >
-          <Column sortable field="menuid" header="ID" style="width: 100px">
+          <Column sortable field="menuid" :header="t('NO')" style="width: 100px">
             <template #body="slotProps">
               <span class="font-semibold text-blue-600">{{ slotProps.data.menuid }}</span>
             </template>
           </Column>
-          
-          <Column sortable field="menuname" header="Menu Name">
+
+          <Column sortable field="menuname" :header="t('Menu Name')" >
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.menuname }}</span>
             </template>
           </Column>
-          <Column sortable field="saleprice" header="Sale Price">
+          <Column sortable field="saleprice" :header="t('Sale Price')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">${{ slotProps.data.saleprice }}</span>
             </template>
           </Column>
-           
-          <Column field="price" header="Action" style="width: 150px">
+
+          <Column field="price" :header="t('Action')" style="width: 200px">
             <template #body="slotProps">
               <div class="flex space-x-2">
-              <button class="btnEdit">Edit</button>
-              <button class="btnDelete">Delete</button>
+              <button class="btnEdit">{{t("Edit")}}</button>
+              <button class="btnDelete">{{t("Delete")}}</button>
               </div>
             </template>
           </Column>
@@ -78,7 +78,9 @@ import axios from 'axios'
 import DashboardLayout from '../Layout/DashboardLayout.vue'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import { useI18n } from 'vue-i18n'
 
+const { t, locale } = useI18n() 
 const menus = ref([])
 const selectedProduct = ref();
 const metaKey = ref(true);

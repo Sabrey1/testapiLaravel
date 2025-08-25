@@ -14,13 +14,13 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
           <div>
-            <h3 class="text-red-800 font-medium">Error loading products</h3>
+            <h3 class="text-red-800 font-medium">{{ t('Error loading invoices') }}</h3>
             <p class="text-red-700 text-sm mt-1">{{ error }}</p>
             <button 
               @click="fetchProducts" 
               class="mt-2 text-sm bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded transition-colors"
             >
-              Try Again
+              {{t("Try Again")}}
             </button>
           </div>
         </div>
@@ -38,32 +38,32 @@
           tableStyle="min-width: 50rem"
           class="custom-datatable"
         >
-          <Column sortable field="invoiceid" header="ID" style="width: 100px">
+          <Column sortable field="invoiceid" :header="t('NO')" style="width: 100px">
             <template #body="slotProps">
               <span class="font-semibold text-blue-600">{{ slotProps.data.invoiceid }}</span>
             </template>
           </Column>
-          
-          <Column sortable field="customerid" header="Customer ID">
+
+          <Column sortable field="customerid" :header="t('Customer ID')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.customerid }}</span>
             </template>
           </Column>
-          <Column sortable field="orderdate" header="Order Date">
+          <Column sortable field="orderdate" :header="t('Order Date')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.orderdate }}</span>
             </template>
           </Column>
-          <Column sortable field="vat" header="Vat">
+          <Column sortable field="vat" :header="('Vat')">
             <template #body="slotProps">
               <span class="font-medium text-gray-900">{{ slotProps.data.vat }}</span>
             </template>
           </Column>
-          <Column field="price" header="Action" style="width: 150px">
+          <Column field="price" :header="t('Action')" style="width: 200px">
             <template #body="slotProps">
               <div class="flex space-x-2">
-              <button class="btnEdit">Edit</button>
-              <button class="btnDelete">Delete</button>
+              <button class="btnEdit">{{t("Edit")}}</button>
+              <button class="btnDelete">{{t("Delete")}}</button>
               </div>
             </template>
           </Column>
@@ -80,6 +80,10 @@ import axios from 'axios'
 import DashboardLayout from '../Layout/DashboardLayout.vue'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import { useI18n } from 'vue-i18n'
+
+const { t, locale } = useI18n() 
+
 
 const invoices = ref([])
 const selectedProduct = ref();
