@@ -34,19 +34,20 @@ const routes = [
     component: CustomerList
   },
   {
-    path: '/customer-detail',
+    path: '/customer-detail/:name',
     name: 'CustomerDetail',
-    component: CustomerDetail
+    component: CustomerDetail,
+    props: true
   },
   {
     path: '/invoice',
     name: 'Invoice',
-    component: Invoice
+    component: Invoice,
   },
   {
     path: '/invoice-detail',
     name: 'InvoiceDetail',
-    component: InvoiceDetail
+    component: InvoiceDetail,
   },
   {
     path: '/menu',

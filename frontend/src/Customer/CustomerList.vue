@@ -1,7 +1,7 @@
 <template>
   <DashboardLayout>
     <div class="container">
-      
+     
       <!-- Loading state -->
       <div v-if="loading" class="flex justify-center items-center py-12">
         <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
@@ -28,6 +28,7 @@
 
       <!-- Product DataTable -->
       <div v-else class="card">
+       
         <DataTable 
           :value="customers" 
           v-model:selection="selectedProduct" 
@@ -43,10 +44,14 @@
               <span class="font-semibold text-blue-600">{{ slotProps.data.customerid }}</span>
             </template>
           </Column>
-
           <Column sortable field="customername" :header="t('Name')">
             <template #body="slotProps">
-              <span class="font-medium text-gray-900">{{ slotProps.data.customername }}</span>
+              <router-link
+                :to="{ name: 'CustomerDetail', params: { name: slotProps.data.customername } }"
+                class="font-medium text-blue-600 hover:underline cursor-pointer"
+              >
+                {{ slotProps.data.customername }}
+              </router-link>
             </template>
           </Column>
           <Column sortable field="phone" :header="t('Phone Number')">
@@ -62,14 +67,18 @@
           <Column field="price" :header="t('Action')" style="width: 200px">
             <template #body="slotProps">
               <div class="flex space-x-2">
-              <button class="btnEdit">{{t("Edit")}}</button>
-              <button class="btnDelete">{{t("Delete")}}</button>
+              <button class="btnEdit" @click="btnedit">{{t("Edit")}}</button>
+              <button class="btnDelete" @click="btndelete">{{t("Delete")}}</button>
               </div>
             </template>
           </Column>
         </DataTable>
+        
       </div>
     </div>
+     <div class="relative bg-gray-100 rounded-md" @click="addCustomer">
+          <i class="fa-solid fa-plus absolute bottom-2 right-2 text-blue-500 drop-shadow-lg text-lg bg-white rounded-full px-2 py-2 cursor-pointer"></i>
+      </div>
   </DashboardLayout>
 </template>
 
@@ -102,6 +111,18 @@ const fetchProducts = async () => {
   } finally {
     loading.value = false
   }
+}
+
+function addCustomer(){
+  alert("add customer")
+}
+
+function btnedit(){
+  alert("edit")
+}
+
+function btndelete(){
+  alert("delete")
 }
 
 const formatPrice = (price) => {
